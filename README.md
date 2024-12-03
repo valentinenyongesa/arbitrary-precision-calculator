@@ -37,9 +37,6 @@ Once the program is running, use the REPL to input expressions, such as:
 ## Contributing
 Contributions are welcome! If you have suggestions for improving the functionality or code clarity, feel free to submit a pull request.
 
-## License
-This project is open source and available under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
 ## Author
 Developed by Valentine Nyongesa  
 Contact: valentinenyongesa94@gmail.com  
