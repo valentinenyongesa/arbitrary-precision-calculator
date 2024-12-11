@@ -155,3 +155,17 @@ class ArbitraryPrecisionCalculator:
         for i in range(1, number + 1):
             result *= i
         return ArbitraryPrecisionCalculator(result)
+
+    def convert_base(self, base):
+        """
+        Converts the current value to a specified base.
+        """
+        number = int(self.value)
+        if base < 2 or base > 36:
+            raise ValueError("Base must be between 2 and 36.")
+        digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        result = []
+        while number > 0:
+            result.append(digits[number % base])
+            number //= base
+        return ''.join(result[::-1]) if result else '0'
