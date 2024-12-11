@@ -22,16 +22,28 @@ class ArbitraryPrecisionCalculator:
     
     def add(self, other):
         """
-        Adds the current value to another ArbitraryPrecisionCalculator instance or a value.
+        Adds another ArbitraryPrecisionCalculator instance or integer to the current value.
+        Handles the addition manually by simulating digit-by-digit addition.
         """
-        # Check if 'other' is an instance of ArbitraryPrecisionCalculator
-        if isinstance(other, ArbitraryPrecisionCalculator):
-            other_value = other.value
-        elif isinstance(other, (int, str)):
-            other_value = str(other)
-        else:
-            raise ValueError("Invalid input: Must be an integer, string, or ArbitraryPrecisionCalculato                             r instance.")
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
 
-        # Convert both values to integers for addition and convert the result back to a string
-        result = str(int(self.value) + int(other_value))
-        return ArbitraryPrecisionCalculator(result)
+        # Manual addition logic
+        result = []
+        carry = 0
+        self_value = self.value[::-1]
+        other_value = other.value[::-1]
+
+        max_len = max(len(self_value), len(other_value))
+        self_value = self_value.ljust(max_len, '0')
+        other_value = other_value.ljust(max_len, '0')
+
+        for i in range(max_len):
+            digit_sum = int(self_value[i]) + int(other_value[i]) + carry
+            carry = digit_sum // 10
+            result.append(str(digit_sum % 10))
+
+        if carry:
+            result.append(str(carry))
+
+        return ArbitraryPrecisionCalculator(''.join(result[::-1]))
