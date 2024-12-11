@@ -81,3 +81,29 @@ class ArbitraryPrecisionCalculator:
             result.pop()
 
         return ArbitraryPrecisionCalculator(''.join(result[::-1]))
+
+    def multiply(self, other):
+        """
+        Multiplies the current value with another ArbitraryPrecisionCalculator instance.
+        Handles multiplication manually using digit-by-digit simulation.
+        """
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
+
+        self_value = self.value[::-1]
+        other_value = other.value[::-1]
+
+        result = [0] * (len(self_value) + len(other_value))
+
+        for i in range(len(self_value)):
+            for j in range(len(other_value)):
+                result[i + j] += int(self_value[i]) * int(other_value[j])
+                if result[i + j] >= 10:
+                    result[i + j + 1] += result[i + j] // 10
+                    result[i + j] %= 10
+
+        # Convert result list to string and remove leading zeros
+        while len(result) > 1 and result[-1] == 0:
+            result.pop()
+
+        return ArbitraryPrecisionCalculator(''.join(map(str, result[::-1])))
