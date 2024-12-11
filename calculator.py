@@ -107,3 +107,18 @@ class ArbitraryPrecisionCalculator:
             result.pop()
 
         return ArbitraryPrecisionCalculator(''.join(map(str, result[::-1])))
+
+    def divide(self, other):
+        """
+        Divides the current value by another ArbitraryPrecisionCalculator instance.
+        Returns the quotient as an ArbitraryPrecisionCalculator instance.
+        """
+        # Placeholder for manual division logic
+        pass
+
+    def modulo(self, other):
+        """
+        Computes the modulo of the current value by another ArbitraryPrecisionCalculator instance.
+        """
+        # Placeholder for modulo logic
+        pass
