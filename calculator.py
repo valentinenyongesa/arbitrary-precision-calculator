@@ -47,3 +47,37 @@ class ArbitraryPrecisionCalculator:
             result.append(str(carry))
 
         return ArbitraryPrecisionCalculator(''.join(result[::-1]))
+
+    def subtract(self, other):
+        """
+        Subtracts another ArbitraryPrecisionCalculator instance from the current value.
+        Handles subtraction manually by simulating digit-by-digit subtraction.
+        """
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
+
+        # Manual subtraction logic
+        # For simplicity, assume self >= other (negative handling will be done later)
+        result = []
+        borrow = 0
+        self_value = self.value[::-1]
+        other_value = other.value[::-1]
+
+        max_len = max(len(self_value), len(other_value))
+        self_value = self_value.ljust(max_len, '0')
+        other_value = other_value.ljust(max_len, '0')
+
+        for i in range(max_len):
+            digit_diff = int(self_value[i]) - int(other_value[i]) - borrow
+            if digit_diff < 0:
+                digit_diff += 10
+                borrow = 1
+            else:
+                borrow = 0
+            result.append(str(digit_diff))
+
+        # Remove leading zeros
+        while len(result) > 1 and result[-1] == '0':
+            result.pop()
+
+        return ArbitraryPrecisionCalculator(''.join(result[::-1]))
