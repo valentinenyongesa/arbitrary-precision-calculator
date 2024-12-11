@@ -113,12 +113,22 @@ class ArbitraryPrecisionCalculator:
         Divides the current value by another ArbitraryPrecisionCalculator instance.
         Returns the quotient as an ArbitraryPrecisionCalculator instance.
         """
-        # Placeholder for manual division logic
-        pass
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
+        divisor = int(other.value)
+        if divisor == 0:
+            raise ZeroDivisionError("Division by zero is not allowed.")
+        result = int(self.value) // divisor
+        return ArbitraryPrecisionCalculator(result)
 
     def modulo(self, other):
         """
         Computes the modulo of the current value by another ArbitraryPrecisionCalculator instance.
         """
-        # Placeholder for modulo logic
-        pass
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
+        divisor = int(other.value)
+        if divisor == 0:
+            raise ZeroDivisionError("Modulo by zero is not allowed.")
+        remainder = int(self.value) % divisor
+        return ArbitraryPrecisionCalculator(remainder)
