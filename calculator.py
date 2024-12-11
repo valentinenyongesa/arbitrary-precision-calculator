@@ -169,3 +169,21 @@ class ArbitraryPrecisionCalculator:
             result.append(digits[number % base])
             number //= base
         return ''.join(result[::-1]) if result else '0'
+
+    def repl():
+    """
+    Read-Eval-Print Loop (REPL) for user interaction with the calculator.
+    """
+    print("Welcome to the Arbitrary-Precision Calculator!")
+    print("Type 'exit' to quit.")
+    calculator = ArbitraryPrecisionCalculator('0')
+
+    while True:
+        command = input(">> ").strip()
+        if command.lower() == 'exit':
+            break
+        try:
+            exec("result = " + command)  # Evaluate user input
+            print("Result:", eval(command))
+        except Exception as e:
+            print("Error:", e)
