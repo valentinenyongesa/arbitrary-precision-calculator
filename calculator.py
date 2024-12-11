@@ -143,3 +143,15 @@ class ArbitraryPrecisionCalculator:
         exponent = int(other.value)
         result = base ** exponent
         return ArbitraryPrecisionCalculator(result)
+
+    def factorial(self):
+        """
+        Computes the factorial of the current value.
+        """
+        number = int(self.value)
+        if number < 0:
+            raise ValueError("Factorial is not defined for negative numbers.")
+        result = 1
+        for i in range(1, number + 1):
+            result *= i
+        return ArbitraryPrecisionCalculator(result)
