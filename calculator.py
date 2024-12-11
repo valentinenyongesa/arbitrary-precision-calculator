@@ -132,3 +132,14 @@ class ArbitraryPrecisionCalculator:
             raise ZeroDivisionError("Modulo by zero is not allowed.")
         remainder = int(self.value) % divisor
         return ArbitraryPrecisionCalculator(remainder)
+
+    def exponentiate(self, other):
+        """
+        Raises the current value to the power of another ArbitraryPrecisionCalculator instance.
+        """
+        if not isinstance(other, ArbitraryPrecisionCalculator):
+            other = ArbitraryPrecisionCalculator(other)
+        base = int(self.value)
+        exponent = int(other.value)
+        result = base ** exponent
+        return ArbitraryPrecisionCalculator(result)
