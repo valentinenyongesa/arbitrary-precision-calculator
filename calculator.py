@@ -171,15 +171,15 @@ class ArbitraryPrecisionCalculator:
         return ''.join(result[::-1]) if result else '0'
 
     def repl():
-    """
-    Read-Eval-Print Loop (REPL) for user interaction with the calculator.
-    """
-    print("Welcome to the Arbitrary-Precision Calculator!")
-    print("Type 'exit' to quit.")
-    calculator = ArbitraryPrecisionCalculator('0')
+        """
+        Read-Eval-Print Loop (REPL) for user interaction with the calculator.
+        """
+        print("Welcome to the Arbitrary-Precision Calculator!")
+        print("Type 'exit' to quit.")
+        calculator = ArbitraryPrecisionCalculator('0')
 
     while True:
-        command = input(">> ").strip()
+        command = input("Enter a calculation: ").strip()
         if command.lower() == 'exit':
             break
         try:
