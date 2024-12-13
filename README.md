@@ -41,8 +41,8 @@ To run this calculator, ensure that Python is installed on your system.
 Once the program is running, use the REPL to input expressions, such as:
 - `5 + 10`
 - `20 * 15`
-- `factorial(5)`
-- `12345678901234567890 ** 2`
+- `5!`
+- `10 + 0b101`
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improving the functionality or code clarity, feel free to submit a pull request.
