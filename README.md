@@ -3,11 +3,21 @@
 ## Overview
 This project is an arbitrary-precision integer calculator implemented in Python without relying on any external libraries for core functionality. The calculator supports basic arithmetic operations such as addition, subtraction, multiplication, division (with modulo), and advanced functions like exponentiation and factorial. The tool is wrapped in a REPL for easy user interaction.
 
+## Demo Video
+
+You can view a demo of the calculator in action by clicking the link below:
+
+[Watch the demo video](https://www.youtube.com/watch?v=wHTllYsDv5A)
+
 ## Features
-- Addition, subtraction, multiplication, division, and modulo
-- Exponentiation and factorial
-- Support for non-decimal bases (optional)
-- Interactive command-line interface (REPL)
+- **Addition**: Supports addition of large numbers.
+- **Multiplication**: Works for both small and large numbers.
+- **Division**: Supports division with arbitrary precision.
+- **Modulo**: Find the remainder when dividing numbers.
+- **Exponentiation**: Calculate large powers.
+- **Factorial**: Compute the factorial of large numbers.
+- **Base Handling**: Support for binary (0b), octal (0o), and hexadecimal (0x) numbers.
+- **Interactive command-line interface (REPL)
 
 ## Installation
 To run this calculator, ensure that Python is installed on your system.
